@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>найобка для уйобка</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            text-align: center;
+        }
+        img {
+            max-width: 300px;
+            height: auto;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.jpg" alt="Логотип" id="logo">
+    <button id="stopSound">Виключити звук 🔕</button>
+    <audio id="audio" src="myinstants.mp3" loop></audio>
+
+    <script>
+        const logo = document.getElementById('logo');
+        const audio = document.getElementById('audio');
+        const stopButton = document.getElementById('stopSound');
+
+        logo.addEventListener('click', () => {
+            audio.volume = 1.0;
+            audio.play();
+        });
+
+        stopButton.addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    </script>
+</body>
+</html>
